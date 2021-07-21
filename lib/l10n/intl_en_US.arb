@@ -1,0 +1,16 @@
+{
+  "@@locale": "en-US",
+  "app_name": "Essentia",
+  "home_search_placeholder": "Search",
+  "home_store_category_heading": "Essentials deliver to you",
+  "nav_btn_home_text": "Home",
+  "nav_btn_bag_text": "Cart",
+  "nav_btn_account_txt": "Account",
+  "@app_name": {
+    "description": "Application Name"
+  },
+  "btn_add_to_cart": "Add to Bag",
+  "@btn_add_to_cart": {},
+  "delivery_no_available_msg": "Sorry, currently we are not delivering to this location",
+  "@delivery_no_available_msg": {}
+}

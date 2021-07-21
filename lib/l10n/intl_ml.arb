@@ -1,0 +1,12 @@
+{
+  "@@locale": "ml",
+  "app_name": "Essentia",
+  "home_search_placeholder": "തിരയുക",
+  "@app_name": {
+    "description": "Application Name"
+  },
+  "btn_add_to_cart": "ബാഗിലേക്ക് ചേർക്കുക",
+  "@btn_add_to_cart": {},
+  "delivery_no_available_msg": "ക്ഷമിക്കണം, നിലവിൽ ഞങ്ങൾ ഈ സ്ഥാനത്തേക്ക് എത്തിക്കുന്നില്ല",
+  "@delivery_no_available_msg": {}
+}
