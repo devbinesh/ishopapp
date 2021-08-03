@@ -1,7 +1,11 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ishop_app/bloc/location/location_bloc.dart';
+import 'package:ishop_app/bloc/location/location_state.dart';
 import 'package:ishop_app/components/coustom_bottom_nav_bar.dart';
 import 'package:ishop_app/constants.dart';
+import 'package:ishop_app/data/model/currentlocation.dart';
 import 'package:ishop_app/enums.dart';
 import 'package:ishop_app/generated/l10n.dart';
 import 'package:ishop_app/routes/home/components/body.dart';
@@ -36,20 +40,20 @@ class HomeScreen extends StatelessWidget{
                           size: 24.0,
                           semanticLabel: 'Click to change location',
                         ),
-                        Expanded(child:Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text("Vannappuram",
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(fontSize: 20.0,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.white),),
-                            Text("Plantation kavala", overflow: TextOverflow.ellipsis,style: TextStyle(fontSize: 12.0,
-                                color: Colors.white),),
-                          ],
-                        ))
-
+                        BlocBuilder<LocationBloc, LocationState>(
+                        builder: (context, location) {
+                          if (location is LocationChanged) {
+                            return locationExpanded(location.currentLocation);
+                          }
+                          else if(location is LocationInit)
+                            {
+                              return locationExpanded(location.currentLocation);
+                            }
+                          else
+                            {
+                              return locationExpanded(location.currentLocation);
+                            }
+                        })
                       ],
                     ),
                   ),
@@ -122,6 +126,22 @@ class HomeScreen extends StatelessWidget{
       ],
     ),
   );
+
+  Expanded locationExpanded(CurrentLocation location) {
+    return Expanded(child:Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('${location.locationName}',
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(fontSize: 20.0,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white),),
+                          Text('${location.locationAddress}', overflow: TextOverflow.ellipsis,style: TextStyle(fontSize: 12.0,
+                              color: Colors.white),),
+                        ],
+                      ));
+  }
 
   @override
   Widget build(BuildContext context) {

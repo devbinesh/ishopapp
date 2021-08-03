@@ -10,6 +10,5 @@ abstract class ApplicationState extends Equatable {
 class ApplicationInit extends ApplicationState{}
 class ApplicationFirstTimeLaunch extends ApplicationState{}
 class ApplicationBootstrapCompleted extends ApplicationState{}
-class LocationChanged extends ApplicationState{}
 class ApplicationPaused extends ApplicationState{}
 class ApplicationExited extends ApplicationState{}
