@@ -5,4 +5,5 @@ class LocationRepository {
   LocationApiProvider _locationApiProvider = LocationApiProvider();
 
   Future<CurrentLocation> getCurrentLocation() => _locationApiProvider.getCurrentLocation();
+  CurrentLocation getLocationObject() => _locationApiProvider.getLocationObject();
 }

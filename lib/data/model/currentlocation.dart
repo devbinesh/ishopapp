@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CurrentLocation {
-  final String locationName;
-  final String locationAddress;
-  final double? latitude;
-  final double? longitude;
+   String locationName;
+   String locationAddress;
+   double latitude;
+   double longitude;
 
   CurrentLocation({
     required this.locationName,
@@ -17,8 +17,8 @@ class CurrentLocation {
     return new CurrentLocation(
         locationName: parsedJson['locationName'] ?? "",
         locationAddress: parsedJson['locationAddress'] ?? "",
-        longitude: parsedJson['longitude'] ?? "",
-        latitude: parsedJson['latitude'] ?? "");
+        longitude: parsedJson['longitude'] ?? 0.0,
+        latitude: parsedJson['latitude'] ?? 0.0);
   }
 
   Map<String, dynamic> toJson() {

@@ -50,8 +50,8 @@ class LocationApiProvider {
     return CurrentLocation(
       locationName: first.featureName,
       locationAddress: second.addressLine,
-      latitude: _locationData.latitude,
-      longitude: _locationData.longitude
+      latitude: _locationData.latitude ?? 0.0 ,
+      longitude: _locationData.longitude ?? 0.0
 
     );
     /* var first = addresses.first;
@@ -66,6 +66,11 @@ class LocationApiProvider {
 
       prefs.setInt("test", 1);
     });*/
+  }
+
+  CurrentLocation getLocationObject()
+  {
+    return CurrentLocation(locationName: '', locationAddress: '', longitude: 0.0, latitude: 0.0);
   }
 
 }
