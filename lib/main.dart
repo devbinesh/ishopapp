@@ -8,7 +8,6 @@ import 'package:ishop_app/data/api/application_repository.dart';
 import 'package:ishop_app/generated/l10n.dart';
 import 'package:ishop_app/routes/home/home.dart';
 import 'package:ishop_app/routes/intro/intro_screen.dart';
-import 'package:ishop_app/routes/location/location.dart';
 import 'package:ishop_app/routes/splash/splash.dart';
 import 'package:ishop_app/theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -85,8 +84,6 @@ class MyApp extends StatelessWidget {
       SplashScreen.routeName: (context) => SplashScreen(),
       HomeScreen.routeName: (context) => HomeScreen(),
       IntroScreen.routeName: (context) => IntroScreen(),
-      LocationScreen.routeName: (context) => LocationScreen()
-
 
     };
   }
