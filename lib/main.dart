@@ -12,15 +12,27 @@ import 'package:ishop_app/routes/splash/splash.dart';
 import 'package:ishop_app/theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'bloc/location/location_bloc.dart';
+import 'bloc/location/location_event.dart';
+import 'bloc/location/location_state.dart';
+import 'package:ishop_app/data/model/currentlocation.dart';
+
 void main() {
   /**
    * Registering global bloc here . It will be avaliable to all children down
    * Init with app init state and a
    */
-  runApp( BlocProvider<ApplicationBloc>(
-      create:  (context) {
-                 return ApplicationBloc(ApplicationInit())..add(AppStarted());
-       },
+  runApp( MultiBlocProvider(
+      providers: [
+        BlocProvider<ApplicationBloc>(
+          create: (context) {
+            return ApplicationBloc(ApplicationInit())..add(AppStarted());
+          },
+        ),
+        BlocProvider<LocationBloc>(
+            create: (context) => LocationBloc(LocationInit())..add(LocationInitial())..add(LocationFetch())
+        )
+      ],
       child: MultiRepositoryProvider(
         providers: [
           RepositoryProvider(create: (context){ return ApplicationRepository(); }) //application repo for global purpose
@@ -71,7 +83,7 @@ class MyApp extends StatelessWidget {
     return <String, WidgetBuilder>{
       SplashScreen.routeName: (context) => SplashScreen(),
       HomeScreen.routeName: (context) => HomeScreen(),
-      IntroScreen.routeName: (context) => IntroScreen()
+      IntroScreen.routeName: (context) => IntroScreen(),
 
     };
   }

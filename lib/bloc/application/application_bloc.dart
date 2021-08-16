@@ -13,7 +13,7 @@ class ApplicationBloc extends Bloc<ApplicationEvent,ApplicationState>{
          SharedPreferences prefs = await SharedPreferences.getInstance();
          //check whether use is opening app for first time
          bool? isFirstTIme = await prefs.getBool("first_time");
-
+print("====================  Started");
          if(isFirstTIme != null && !isFirstTIme){
            yield ApplicationBootstrapCompleted();
          }else{
